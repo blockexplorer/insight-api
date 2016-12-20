@@ -25,14 +25,14 @@ if (process.env.INSIGHT_NETWORK === 'livenet') {
   env = 'livenet';
   db = home;
   port = '3000';
-  b_port = '8332';
-  p2p_port = '8333';
+  b_port = '9337';
+  p2p_port = '9336';
 } else {
   env = 'testnet';
   db = home + '/testnet';
   port = '3001';
-  b_port = '18332';
-  p2p_port = '18333';
+  b_port = '19336';
+  p2p_port = '19337';
 }
 port = parseInt(process.env.INSIGHT_PORT) || port;
 
@@ -49,7 +49,7 @@ switch (process.env.NODE_ENV) {
     break;
 }
 
-var network = process.env.INSIGHT_NETWORK || 'testnet';
+var network = process.env.INSIGHT_NETWORK || 'livenet';
 var forceRPCsync = process.env.INSIGHT_FORCE_RPC_SYNC;
 
 var dataDir = process.env.BITCOIND_DATADIR;
@@ -59,7 +59,7 @@ var isLinux = /^linux/.test(process.platform);
 if (!dataDir) {
   if (isWin) dataDir = '%APPDATA%\\Bitcoin\\';
   if (isMac) dataDir = process.env.HOME + '/Library/Application Support/Bitcoin/';
-  if (isLinux) dataDir = process.env.HOME + '/.bitcoin/';
+  if (isLinux) dataDir = process.env.HOME + '/.feathercoin/';
 }
 dataDir += network === 'testnet' ? 'testnet3' : '';
 
@@ -69,8 +69,8 @@ var ignoreCache = process.env.INSIGHT_IGNORE_CACHE || 0;
 
 var bitcoindConf = {
   protocol: process.env.BITCOIND_PROTO || 'http',
-  user: process.env.BITCOIND_USER || 'user',
-  pass: process.env.BITCOIND_PASS || 'pass',
+  user: process.env.BITCOIND_USER || 'FSightUser',
+  pass: process.env.BITCOIND_PASS || 'FeatherCoinRocks++ComplexNess',
   host: process.env.BITCOIND_HOST || '127.0.0.1',
   port: process.env.BITCOIND_PORT || b_port,
   p2pPort: process.env.BITCOIND_P2P_PORT || p2p_port,

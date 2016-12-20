@@ -3,7 +3,7 @@
 
 'use strict';
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+process.env.NODE_ENV = process.env.NODE_ENV || 'production';
 
 var SYNC_VERSION = '0.1';
 var program = require('commander');

@@ -2,7 +2,7 @@
 
 'use strict';
 //Set the node enviornment variable if not set before
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+process.env.NODE_ENV = process.env.NODE_ENV || 'production';
 
 var fs = require('fs');
 var PeerSync = require('./lib/PeerSync');
